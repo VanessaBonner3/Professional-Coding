@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--Vanessa Bonner-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" type="text/css" href="Style2.css">
+    
+    
+    <title>UAT Space Page</title>
+    <h1>Vanessa Bonner</h1>
+    <h3>Network Security & Advancing Computer Science</h3>
+</head>
+
+<!--Navigation-->
+<body>
+    <div id="nav" class="topnav-centered">
+        <a href="Front.html">UAT Space</a>
+        <a href="Boarding.html">Boarding Space</a>
+    </div>
+ 
+    <div class="mydiv">
+    <center><img src="UAT-Space-Image.png" alt="UAT Space Logo"></center>
+    </div>
+</body>
+
+<!-- Here to show the button in used to show and hide the table below the code. The table list and the button-->
+  <table  border="3"  id="displaytable" style="width: 70%px;">
+    <p>The Solar System:</p>
+    <div>
+        <div class="center" id="toggleVisibilityButton"</div>
+        <input type="button"class="center" value="Show/Hide"/>
+    </div> 
+    <tr>
+      <th>Distance from the sun?</th>
+      <th>How long does it take to get there from Earth?</th>
+      <th >How long is a year? (1 orbit of the sun)</th>
+      <th>How long is a day? (1 rotation)</th>
+      <th>How many moons?</th>
+    </tr>
+    <tr>
+      <td>Mercury</td>
+      <td>60 Million KM</td>
+      <td>52 days</td>
+      <td>88 Earth days</td>
+      <td>59 Earth days</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>Venus</td>
+      <td>107 Million km</td>
+      <td>100 days</td>
+      <td>225 Earth days</td>
+      <td>243 Earth days</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td>Earth</td>
+      <td>150 Million km</td>
+      <td0></td0>
+      <td>365 days</td>
+      <td>24 hours</td>
+      <td>1</td>
+    </tr>
+
+    <tr>
+      <td>Mars</td>
+      <td>228 Million km</td>
+      <td>210 days</td>
+      <td>687 Earth days</td>
+      <td>24 hours and 39 minutes</td>
+      <td>2</td>
+    </tr>
+
+    <tr>
+      <td>Jupiter</td>
+      <td>777 Million km</td>
+      <td>1.9 years</td>
+      <td>12 Earth days</td>
+      <td>9 hours and 39 minutes</td>
+      <td>63</td>
+    </tr>
+
+    <tr>
+      <td>Saturn</td>
+      <td>1432 Million km</td>
+      <td>3.6 years</td>
+      <td>29.5 Earth years</td>
+      <td>10 hours and 39 minutes</td>
+      <td>62</td>
+    </tr>
+
+     <tr>
+      <td>Uranus</td>
+      <td>2871 Million km</td>
+      <td>7.3 years</td>
+      <td>84 Earth years</td>
+      <td>17 hours and 14 minutes</td>
+      <td>27</td>
+    </tr>
+
+    <tr>
+      <td>Neptune</td>
+      <td>4494 Million km</td>
+      <td>11.4 years</td>
+      <td>165 Earht years</td>
+      <td>16 hours 7 minutes</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Pluto</td>
+      <td>5914 Million km</td>
+      <td>15.1 years</td>
+      <td>248 Earth years</td>
+      <td>6 1/2 Earth days</td>
+      <td>3</td>
+    </tr>
+</table>
+
+
+<!--Goes to the button-->
+<script> 
+ document.getElementById("toggleVisibilityButton").addEventListener("click", function(button) {    
+   if (document.getElementById("displaytable").style.display === "none") 		     document.getElementById("displaytable").style.display = "block";
+   else document.getElementById("displaytable").style.display = "none";
+});
+</script>
+
+
+<br>
+<!--Game area-->
+<div class="center" id="game">
+    <button class="center" onclick="kHitMe();">Hit Me</button>
+    <p id="dice1"></p>
+    <p id="dice2"></p>
+    <p id="sum"></p>
+    <p id="result"></p>
+</div>
+
+<br>
+<br> <!--Space added in between-->
+
+<script>
+  function kHitMe() {
+    var dice1 =Math.ceil(Math.random()*9);//First dice, calling random number between 1-9.
+    var dice2 =Math.ceil(Math.random()*9);//Second dice, calling random number between 1-9.
+    
+    var sum = dice1+dice2//Sum of both dice.
+
+    document.getElementById("dice1").innerHTML=("Dice 1 = " + dice1)//The value of the first dice.
+
+    document.getElementById("dice2").innerHTML=("Dice 2 = " + dice2)//The value of the second dice.
+
+    document.getElementById("sum").innerHTML=("Sum = " + sum)//The sum of both dice.
+
+    if (sum == 1 || sum == 10){ //1st condition. if sum equals 1 or 10 you lose.
+        document.getElementById("result").innerHTML=("CRAPS - meh.")
+    }
+    else if ((dice1 == dice2) && (dice1%dice2 == 0)){//2nd condition. If dice are equal, or if dice1/dice2 and there will no leftover you win.
+        document.getElementById("result").innerHTML=("DOUBLES - Congratulation.")
+    }
+    else{
+        document.getElementById("result").innerHTML=("DRAW - maybe, next time.")
+    }
+    
+}
+</script>
+
+
+</html>
